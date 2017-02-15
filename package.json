@@ -23,5 +23,12 @@
   "bugs": {
     "url": "https://github.com/yenereren/syncroll/issues"
   },
-  "homepage": "https://github.com/yenereren/syncroll#readme"
+  "homepage": "https://github.com/yenereren/syncroll#readme",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jasmine": "^2.4.2"
+  }
 }
