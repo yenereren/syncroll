@@ -1,0 +1,27 @@
+{
+  "name": "syncroll",
+  "version": "0.0.1",
+  "description": "2 sibling div scrolling sync",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yenereren/syncroll.git"
+  },
+  "keywords": [
+    "syncroll",
+    "sibling",
+    "div",
+    "scroll",
+    "fixed",
+    "position"
+  ],
+  "author": "eren yener",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yenereren/syncroll/issues"
+  },
+  "homepage": "https://github.com/yenereren/syncroll#readme"
+}
