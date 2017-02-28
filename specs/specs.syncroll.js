@@ -2,7 +2,6 @@
 QUnit.test( "jquery should included", function( assert ) {
     var _$ = $;
     assert.ok( !!_$, "jquery included" );
-
 });
 
 QUnit.test( "synroll should be appended to jquery", function( assert ) {
