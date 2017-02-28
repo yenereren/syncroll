@@ -1,3 +1,21 @@
 .page-wrapper{
     margin-top: 20px;
 }
+
+.sycn-panel{
+    background-color: #cccccc;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.sycn-panel > h1{
+    color: #4e4e4e
+}
+
+#scrollableArea{
+    height: 350px;
+}
+
+#fixedArea{
+    height: 1000px;
+}
