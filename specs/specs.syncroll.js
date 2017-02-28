@@ -14,6 +14,18 @@ QUnit.test( "type of synroll should be function", function( assert ) {
     assert.ok( 'function' === typeof syncroll, "syncroll appended to jquery" );
 });
 
+QUnit.test( "bix box should not be synced-scroll to small box", function( assert ) {
+
+});
+
+QUnit.test( "equals boxes should not be synced-scroll", function( assert ) {
+
+});
+
+QUnit.test( "small box should be synced-scroll to bix box's bottom", function( assert ) {
+
+});
+
 // QUnit.test( "type of synroll should be function", function( assert ) {
 //   assert.expect(true);
 //
