@@ -1,7 +1,9 @@
 const gulp = require('gulp');
-const jasmine = require('gulp-jasmine');
+const qunit = require('gulp-qunit');
 
 gulp.task('default', () =>
-gulp.src('spec/test.js')
-    .pipe(jasmine())
-);
+
+gulp.task('test', function() {
+    return gulp.src('./specs/test-runner.html')
+        .pipe(qunit());
+});

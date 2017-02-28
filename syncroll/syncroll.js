@@ -2,7 +2,7 @@
  * Syncroll Sync With Sibling Forever v0.0.1
  */
 
-;(function($) {
+(function($) {
 
     function Syncroll(element, options){
 
@@ -49,4 +49,4 @@
 
     $.fn.syncroll.Constructor = Syncroll;
 
-})();
+})(window.jQuery);
