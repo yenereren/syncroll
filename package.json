@@ -4,7 +4,7 @@
   "description": "2 sibling div scrolling sync",
   "main": "index.js",
   "scripts": {
-      "gulp-tests": "gulp-test"
+      "gulp": "gulp"
   },
   "repository": {
     "type": "git",

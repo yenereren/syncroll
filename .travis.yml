@@ -3,7 +3,7 @@ node_js:
 - stable
 before_script:
   - npm install
-  - npm gulp-tests
+  - npm run gulp --test
 script: bash ./deploy.sh
 env:
   global:
