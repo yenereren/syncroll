@@ -31,9 +31,8 @@
         this.$element = $(element);
         this.$syncTo = $(syncTo);
         this.options = $.extend({}, Syncroll.Defaults, options);
-        result = this.init();
-
-        return result;
+        this.init();
+        
     }
 
     Syncroll.Defaults = {
