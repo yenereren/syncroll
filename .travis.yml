@@ -1,8 +1,17 @@
 language: node_js
 node_js:
-- stable
-before_script: npm install && npm install -g gulp && gulp-test
-script: bash ./deploy.sh
+  - "5.1.0"
+matrix:
+  allow_failures:
+    - node_js: "5.1.0"
+  fast_finish: true
+before_install:
+    - "npm install -g gulp"
+before_script:
+    - "npm install"
+script:
+    -  "gulp-test"
+    -  bash ./deploy.sh
 env:
   global:
   - ENCRYPTION_LABEL: "<.... encryption label from previous step ....>"
