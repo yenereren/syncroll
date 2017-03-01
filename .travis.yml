@@ -1,9 +1,7 @@
 language: node_js
 node_js:
 - stable
-before_script:
-  - npm install
-  - npm run gulp --test
+before_script: npm run gulp --test
 script: bash ./deploy.sh
 env:
   global:
