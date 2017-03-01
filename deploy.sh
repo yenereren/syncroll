@@ -64,3 +64,5 @@ ssh-add deploy_key
 # Now that we're all set up, we can push.
 rm -rf demo
 git clone $SSH_REPO $TARGET_BRANCH
+
+exit 0
