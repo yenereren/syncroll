@@ -3,8 +3,7 @@ node_js:
 - stable
 before_script:
   - npm install
-  - npm install --save gulp -g
-  - npm install --save gulp-qunit -g
+  - npm gulp-tests
 script: bash ./deploy.sh
 env:
   global:
