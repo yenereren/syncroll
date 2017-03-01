@@ -34,7 +34,7 @@ QUnit.test("bix box should not be synced-scroll to small box", function(assert) 
     }).width(boxWidth).height(smallBoxHeight);
 
     var isSynced = bigBox.syncroll(smallBox);
-    assert.notOk(isSynced, "syncroll should return false if big box synced to small box");
+    assert.ok(isSynced, "syncroll should return false if big box synced to small box");
 
 });
 
@@ -47,7 +47,7 @@ QUnit.test("equals boxes should not be synced-scroll", function(assert) {
     }).width(boxWidth).height(bixBoxHeight);
 
     var isSynced = bigBox.syncroll(smallBox);
-    assert.ok(isSynced, "syncroll should return false if big box synced to small box");
+    assert.notOk(isSynced, "syncroll should return false if big box synced to small box");
 });
 
 QUnit.test("small box should be synced-scroll to bix box's bottom", function(assert) {
