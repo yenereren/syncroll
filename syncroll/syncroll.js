@@ -45,11 +45,7 @@
     };
 
     Syncroll.prototype.init = function(){
-
-        var result = false;
-
         this.setup();
-        return result;
     }
 
     Syncroll.prototype.setup = function() {
