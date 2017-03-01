@@ -15,32 +15,8 @@
     <script src="https://code.jquery.com/qunit/qunit-2.1.1.js"></script>
     <script src="../syncroll/syncroll.js"></script>
     <script src="./specs.syncroll.js"></script>
-    <script src="./specs.syncroll.js"></script>
-    <script src="./grabzit.min.js"></script>
-
-    <script>
-        $(window).load(function() {
-
-            setTimeout(function() {
-
-                var passedCount = $("#qunit-testresult-display > .passed").text();
-                var failedCount = $("#qunit-testresult-display > .failed").text();
-                var totalCount = $("#qunit-testresult-display > .total").text();
-                var text = '<span style="color:green">' + passedCount + "_PASSED</span><br>" + '<span style="color:red">' + failedCount + "_FAILED</span><br>";
-                var html = '<p style="font-size:200px; width:250px">' + text + '</p>';
-
-                var options = {
-                    width: 200,
-                    height: 200
-                };
-
-                GrabzIt("NjBjNWI2OWIyN2E2NDE2MmEzMmI3NDAzMjQ2ZDY1ZTk=").ConvertHTML(html, options).Create();
-            }, 3000);
 
 
-
-        })
-    </script>
 </body>
 
 </html>
