@@ -32,6 +32,7 @@
 
         var result = true;
         this.settings = null;
+        this.$window = $(window);
         this.$element = $(element);
         this.$syncTo = $(syncTo);
         this.options = $.extend({}, Syncroll.Defaults, options);
@@ -53,6 +54,17 @@
 
     Syncroll.prototype.setup = function() {
         this.log('setup');
+        this.registerEvents();
+    };
+
+    Syncroll.prototype.registerEvents = function() {
+        this.log('registerEvents');
+        var self = this;
+
+        $(document).on('scroll', function() {
+            var scrollTop = $(this).scrollTop();
+            console.log(scrollTop);
+        });
     };
 
     Syncroll.prototype.log = function(message) {
