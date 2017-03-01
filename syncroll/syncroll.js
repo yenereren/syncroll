@@ -35,6 +35,7 @@
         this.$window = $(window);
         this.$element = $(element);
         this.$syncTo = $(syncTo);
+        this.$currentScrollPosition = 0;
         this.options = $.extend({}, Syncroll.Defaults, options);
         this.init();
 
