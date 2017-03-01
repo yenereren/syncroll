@@ -4,11 +4,36 @@
 
 (function($) {
 
-    function Syncroll(element, options){
+    function SyncrollValidator(element, syncTo, options){
+        this.$element = $(element);
+        this.$syncTo = $(syncTo);
+        this.options = $.extend({}, Syncroll.Defaults, options);
+    }
 
+    SyncrollValidator.prototype.validate = function() {
+        var self = this;
+
+        if(self.$element.length === 0 && self.$syncTo.length === 0){
+            return false;
+        }
+
+        if(self.$element.height() >=0 && self.$syncTo.height()){
+            return false;
+        }
+
+        return true;
+    };
+
+    function Syncroll(element, syncTo, options){
+
+        var result = true;
         this.settings = null;
-        this.options = $.extend({}, Thumbify.Defaults, options);
+        this.$element = $(element);
+        this.$syncTo = $(syncTo);
+        this.options = $.extend({}, Syncroll.Defaults, options);
+        result = this.init();
 
+        return result;
     }
 
     Syncroll.Defaults = {
@@ -19,10 +44,19 @@
 
     };
 
+    Syncroll.prototype.init = function(){
+
+        var result = false;
+
+        if(this.validate()){
+            this.setup();
+        }
+
+        return result;
+    }
+
     Syncroll.prototype.setup = function() {
         this.log('setup');
-
-
     };
 
     Syncroll.prototype.log = function(message) {
@@ -39,12 +73,21 @@
     };
 
 
-    $.fn.syncroll = function(option) {
-        var args = Array.prototype.slice.call(arguments, 1);
+    $.fn.syncroll = function(syncTo, option) {
 
-        return this.each(function() {
-            new Syncroll(this, typeof option == 'object' && option);
-        });
+        var args = Array.prototype.slice.call(arguments, 1);
+        var result = true;
+        var validator = new SyncrollValidator(this, syncTo, option);
+
+        if(validator.validate()){
+            this.each(function() {
+                new Syncroll(this, syncTo, typeof option == 'object' && option);
+            });
+        }else{
+            result = false;
+        }
+
+        return result;
     };
 
     $.fn.syncroll.Constructor = Syncroll;
