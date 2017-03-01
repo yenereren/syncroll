@@ -4,7 +4,7 @@
 
 (function($) {
 
-    function SyncrollValidator(element, syncTo, options){
+    function SyncrollValidator(element, syncTo, options) {
         this.$element = $(element);
         this.$syncTo = $(syncTo);
         this.options = $.extend({}, Syncroll.Defaults, options);
@@ -13,18 +13,22 @@
     SyncrollValidator.prototype.validate = function() {
         var self = this;
 
-        if(self.$element.length === 0 && self.$syncTo.length === 0){
+        if (self.$element.length === 0 && self.$syncTo.length === 0) {
             return false;
         }
 
-        if(self.$element.height() >=0 && self.$element.height() >= self.$syncTo.height()){
+        if (self.$element.height() >= 0 && self.$element.height() >= self.$syncTo.height()) {
+            return false;
+        }
+
+        if ($("body").height() <= $(window).height()) {
             return false;
         }
 
         return true;
     };
 
-    function Syncroll(element, syncTo, options){
+    function Syncroll(element, syncTo, options) {
 
         var result = true;
         this.settings = null;
@@ -36,14 +40,14 @@
     }
 
     Syncroll.Defaults = {
-        debugMode:false
+        debugMode: false
     };
 
     Syncroll.Constants = {
 
     };
 
-    Syncroll.prototype.init = function(){
+    Syncroll.prototype.init = function() {
         this.setup();
     }
 
@@ -52,7 +56,7 @@
     };
 
     Syncroll.prototype.log = function(message) {
-        if(this.options.debugMode){
+        if (this.options.debugMode) {
             console.log('syncroll message -> ' + message);
         }
     };
@@ -71,11 +75,11 @@
         var result = true;
         var validator = new SyncrollValidator(this, syncTo, option);
 
-        if(validator.validate()){
+        if (validator.validate()) {
             this.each(function() {
                 new Syncroll(this, syncTo, typeof option == 'object' && option);
             });
-        }else{
+        } else {
             result = false;
         }
 

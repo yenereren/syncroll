@@ -39,6 +39,7 @@ QUnit.test("bix box should not be synced-scroll to small box", function(assert) 
 });
 
 QUnit.test("equals boxes should not be synced-scroll", function(assert) {
+
     var bigBox = $('<div/>', {
         'id': 'bigBox'
     }).width(boxWidth).height(bixBoxHeight);
@@ -47,13 +48,35 @@ QUnit.test("equals boxes should not be synced-scroll", function(assert) {
     }).width(boxWidth).height(bixBoxHeight);
 
     var isSynced = bigBox.syncroll(smallBox);
-    assert.notOk(isSynced, "syncroll should return false if big box synced to small box");
+    assert.notOk(isSynced, "equals boxes should not be synced-scroll");
+});
+
+QUnit.test("syncroll should not be applied if page is not scrollable", function(assert) {
+
+    var windowHeight = $(window).height();
+    $("body").height(windowHeight - 1);
+
+    var bigBox = $('<div/>', {
+        'id': 'bigBox'
+    }).width(boxWidth).height(bixBoxHeight);
+
+    var smallBox = $('<div/>', {
+        'id': 'smallBox'
+    }).width(boxWidth).height(smallBoxHeight);
+
+    var isSynced = smallBox.syncroll(bigBox);
+    assert.notOk(isSynced, "syncroll should not be applied if page is not scrollable");
 });
 
 QUnit.test("small box should be synced-scroll to bix box's bottom", function(assert) {
+
+    var windowHeight = $(window).height();
+    $("body").height(windowHeight + 1);
+
     var bigBox = $('<div/>', {
         'id': 'bigBox'
     }).width(boxWidth).height(bixBoxHeight);
+
     var smallBox = $('<div/>', {
         'id': 'smallBox'
     }).width(boxWidth).height(smallBoxHeight);
@@ -62,17 +85,6 @@ QUnit.test("small box should be synced-scroll to bix box's bottom", function(ass
     assert.ok(isSynced, "syncroll should return false if big box synced to small box");
 });
 
-QUnit.test("small box should be synced-scroll to bix box's bottom 2", function(assert) {
-    var bigBox = $('<div/>', {
-        'id': 'bigBox'
-    }).width(boxWidth).height(bixBoxHeight);
-    var smallBox = $('<div/>', {
-        'id': 'smallBox'
-    }).width(boxWidth).height(smallBoxHeight);
-
-    var isSynced = smallBox.syncroll(bigBox);
-    assert.ok(isSynced, "syncroll should return false if big box synced to small box");
-});
 
 // QUnit.test( "type of synroll should be function", function( assert ) {
 //   assert.expect(true);
