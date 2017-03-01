@@ -3,7 +3,7 @@ node_js:
 - stable
 before_script:
   - npm install
-script: bash gulp-test ./deploy.sh 
+script: bash ./deploy.sh 
 env:
   global:
   - ENCRYPTION_LABEL: "<.... encryption label from previous step ....>"
