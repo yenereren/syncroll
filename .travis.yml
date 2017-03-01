@@ -3,7 +3,9 @@ node_js:
 - stable
 before_script:
   - npm install
-script: bash ./deploy.sh 
+  - npm install --save gulp -g
+  - npm install --save gulp-qunit -g
+script: bash ./deploy.sh
 env:
   global:
   - ENCRYPTION_LABEL: "<.... encryption label from previous step ....>"
