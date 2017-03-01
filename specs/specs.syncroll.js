@@ -43,7 +43,11 @@ QUnit.test( "equals boxes should not be synced-scroll", function( assert ) {
 });
 
 QUnit.test( "small box should be synced-scroll to bix box's bottom", function( assert ) {
+    var bigBox = $('<div/>',{'id':'bigBox'}).width(boxWidth).height(bixBoxHeight);
+    var smallBox = $('<div/>',{'id':'smallBox'}).width(boxWidth).height(smallBoxHeight);
 
+    var isSynced = smallBox.syncroll(bigBox);
+    assert.ok(isSynced, "syncroll should return false if big box synced to small box" );
 });
 
 // QUnit.test( "type of synroll should be function", function( assert ) {

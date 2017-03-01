@@ -17,7 +17,7 @@
             return false;
         }
 
-        if(self.$element.height() >=0 && self.$syncTo.height()){
+        if(self.$element.height() >=0 && self.$element.height() >= self.$syncTo.height()){
             return false;
         }
 
@@ -48,10 +48,7 @@
 
         var result = false;
 
-        if(this.validate()){
-            this.setup();
-        }
-
+        this.setup();
         return result;
     }
 
