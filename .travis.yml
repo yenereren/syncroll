@@ -10,7 +10,7 @@ before_install:
 before_script:
     - "npm install"
 script:
-    -  "gulp-test"
+    -  "gulp test"
     -  bash ./deploy.sh
 env:
   global:
