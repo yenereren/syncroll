@@ -32,11 +32,11 @@
         this.$syncTo = $(syncTo);
         this.options = $.extend({}, Syncroll.Defaults, options);
         this.init();
-        
+
     }
 
     Syncroll.Defaults = {
-        debugMode:true
+        debugMode:false
     };
 
     Syncroll.Constants = {
