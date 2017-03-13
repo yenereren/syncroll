@@ -17,8 +17,10 @@
 #scrollableArea {
     height: 350px;
     width: 275px;
+    padding-top: 100px;
 }
 
 #fixedArea {
     height: 1000px;
+    padding-top: 50px;
 }

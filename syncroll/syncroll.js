@@ -37,8 +37,8 @@
         this.$syncTo = $(syncTo);
 
         this.elemenDistanceTop = Math.floor(this.$element.offset().top);
-        this.elementHeight = this.$element.height();
-        this.syncToElementOffsetBottom = Math.floor(this.$syncTo.offset().top + this.$syncTo.height());
+        this.elementHeight = this.$element.outerHeight();
+        this.syncToElementOffsetBottom = Math.floor(this.$syncTo.offset().top + this.$syncTo.outerHeight());
 
         this.currentScrollPosition = 0;
         this.options = $.extend({}, Syncroll.Defaults, options);
@@ -87,7 +87,7 @@
             self.$element.css('top', self.options.paddingTop);
             self.$element.css('position', 'fixed');
         } else if (section === self.constants.sections.bottom) {
-            var topPosition = self.syncToElementOffsetBottom - self.$element.height() - $('#scrollableContainer').offset().top;
+            var topPosition = self.syncToElementOffsetBottom - self.$element.outerHeight() - $('#scrollableContainer').offset().top;
             self.$element.css('top', topPosition);
             self.$element.css('position', 'absolute');
         } else {
@@ -112,7 +112,6 @@
             section = self.constants.sections.bottom;
         }
 
-        console.log(section);
         return section;
     };
 
