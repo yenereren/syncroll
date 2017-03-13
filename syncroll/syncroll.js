@@ -36,9 +36,9 @@
         this.$element = $(element);
         this.$syncTo = $(syncTo);
 
-        this.elemenDistanceTop = this.$element.offset().top;
+        this.elemenDistanceTop = Math.floor(this.$element.offset().top);
         this.elementHeight = this.$element.height();
-        this.syncToElementOffsetBottom = this.$syncTo.offset().top + this.$syncTo.height();
+        this.syncToElementOffsetBottom = Math.floor(this.$syncTo.offset().top + this.$syncTo.height());
 
         this.currentScrollPosition = 0;
         this.options = $.extend({}, Syncroll.Defaults, options);
@@ -74,28 +74,22 @@
         var self = this;
 
         $(document).on('scroll', function() {
-            console.log(" ");
-            console.log("---------------------on scroll");
-            self.currentScrollPosition = $(this).scrollTop();
+            self.currentScrollPosition = Math.floor($(this).scrollTop());
             self.sync();
-            console.log("---------------------sync finished");
-            console.log(" ");
         });
     };
 
     Syncroll.prototype.sync = function() {
         var self = this;
-
         var section = self.getSection();
-        console.log("section -> " + section);
 
         if (section === self.constants.sections.scrollableArea) {
-            self.$element.css('position', 'fixed');
             self.$element.css('top', self.options.paddingTop);
+            self.$element.css('position', 'fixed');
         } else if (section === self.constants.sections.bottom) {
             var topPosition = self.syncToElementOffsetBottom - self.$element.height() - $('#scrollableContainer').offset().top;
-            self.$element.css('position', 'absolute');
             self.$element.css('top', topPosition);
+            self.$element.css('position', 'absolute');
         } else {
             self.$element.css('position', 'relative');
             self.$element.css('top', 0);
@@ -106,16 +100,19 @@
         var self = this;
         var section = self.constants.sections.top;
 
-        var bottom = self.$element.offset().top + self.elementHeight;
-        var leftToTop = self.elemenDistanceTop - self.currentScrollPosition;
-        console.log("bottom -> " + bottom);
-        console.log("leftToTop -> " + leftToTop);
-        if (bottom >= self.syncToElementOffsetBottom) {
-            section = self.constants.sections.bottom;
-        } else if (Syncroll.Defaults.paddingTop >= leftToTop) {
+        var bottom = Math.floor(self.$element.offset().top + self.elementHeight) + 1;
+        var distanceToTop = Math.floor(self.elemenDistanceTop - self.currentScrollPosition);
+        var distanceToBrowsersTop = Math.floor(self.elemenDistanceTop + Math.abs(distanceToTop) + self.elementHeight);
+
+        if (distanceToTop > Syncroll.Defaults.paddingTop) {
+            section = self.constants.sections.top;
+        } else if (distanceToTop <= Syncroll.Defaults.paddingTop & distanceToBrowsersTop < self.syncToElementOffsetBottom) {
             section = self.constants.sections.scrollableArea;
+        } else {
+            section = self.constants.sections.bottom;
         }
 
+        console.log(section);
         return section;
     };
 
