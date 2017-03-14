@@ -1,11 +1,11 @@
-# Syncroll
+# Syncroll ![Build Status](https://travis-ci.org/yenereren/syncroll.svg?branch=master)
 
 Use Syncroll to make html elements sticky.
 
 
 ## Quick start
 
-[HERE](https://yenereren.github.io/syncroll/demo/)
+[Demo Here](https://yenereren.github.io/syncroll/demo/)
 
 
 ### Load
@@ -55,9 +55,6 @@ Use Syncroll to make html elements sticky.
         $('#scrollableArea').syncroll('#fixedArea');
     });
 ```
-
-
-![Build Status](https://travis-ci.org/yenereren/syncroll.svg?branch=master)
 
 ### Test Runner
 https://yenereren.github.io/syncroll/specs/test-runner.html
