@@ -5,8 +5,6 @@ Use Syncroll to make html elements sticky.
 
 ## Quick start
 
-### Demo
-
 [HERE](https://yenereren.github.io/syncroll/demo/)
 
 
